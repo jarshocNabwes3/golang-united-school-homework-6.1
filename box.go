@@ -83,14 +83,24 @@ func (b *box) ReplaceByIndex(i int, shape Shape) (Shape, error) {
 
 // SumPerimeter provides sum perimeter of all shapes in the list.
 func (b *box) SumPerimeter() float64 {
-	panic("implement me")
+	var sum float64 = 0
+	for _, shape := range b.shapes {
+		perimeter := shape.CalcPerimeter()
+		sum += perimeter
+	}
 
+	return sum
 }
 
 // SumArea provides sum area of all shapes in the list.
 func (b *box) SumArea() float64 {
-	panic("implement me")
+	var sum float64 = 0
+	for _, shape := range b.shapes {
+		perimeter := shape.CalcArea()
+		sum += perimeter
+	}
 
+	return sum
 }
 
 // RemoveAllCircles removes all circles in the list

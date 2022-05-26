@@ -9,7 +9,7 @@ type Triangle struct {
 
 func (triangle *Triangle) CalcArea() (area float64) {
 	side := triangle.Side
-	area = math.Sqrt(.75) * side * side
+	area = math.Sqrt(3) / 4 * side * side
 
 	return
 }
