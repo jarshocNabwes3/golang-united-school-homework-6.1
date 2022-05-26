@@ -106,6 +106,17 @@ func (b *box) SumArea() float64 {
 // RemoveAllCircles removes all circles in the list
 // whether circles are not exist in the list, then returns an error
 func (b *box) RemoveAllCircles() error {
-	panic("implement me")
+	error := fmt.Errorf(`no circles found in shapes`)
+	shapeLen := len(b.shapes)
+	for i, _ := range b.shapes {
+		j := shapeLen - 1 - i
+		shape := b.shapes[j]
+		_, isCircle := shape.(*Circle)
+		if isCircle {
+			error = nil
+			b.ExtractByIndex(j)
+		}
+	}
 
+	return error
 }
